@@ -1,6 +1,6 @@
 import './App.css';
 import { Banner } from './components/Banner';
-import { Features } from './components/Features/Features';
+import { Features } from './components/Features/FeaturesComponent';
 import { Switch } from './components/Switch';
 
 function App() {

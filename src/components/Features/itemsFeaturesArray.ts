@@ -1,6 +1,6 @@
-import { ItemFeature } from "./itemFeature.type";
+import { ItemFeature } from "./Features.types";
 
-export const itemsFeatures: ItemFeature[] = [
+export const itemsFeaturesArray: ItemFeature[] = [
     {
         name: 'Seo',
         description: "Programació d'una web responsive completa",
