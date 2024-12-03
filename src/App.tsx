@@ -1,19 +1,17 @@
 import './App.css';
 import { Banner } from './components/Banner';
-import { Features } from './components/Features/FeaturesComponent';
+import { FeaturesComponent } from './components/Features/FeaturesComponent';
 import { Switch } from './components/Switch';
 
 function App() {
-
-
   return (
     <>
       <header>
       </header>
       <main>
-        <Banner/>
-        <Switch/>
-        <Features/>
+        <Banner />
+        <Switch />
+        <FeaturesComponent />
       </main>
       <footer>
       </footer>

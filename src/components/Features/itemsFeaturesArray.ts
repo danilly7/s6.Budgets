@@ -26,4 +26,4 @@ export const itemsFeaturesArray: ItemFeature[] = [
             languages: 0,
         },
     }
-]
+];

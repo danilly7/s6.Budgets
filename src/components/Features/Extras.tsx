@@ -2,7 +2,7 @@ import React from "react";
 import { ExtrasProps } from "./Features.types";
 
 export const Extras: React.FC<ExtrasProps> = ({ pagesCount, languagesCount, handleClickPlus, handleClickMinus }) => {
-    console.log(pagesCount, languagesCount);
+
     return (
         <div className="flex flex-row mt-8 w-full justify-end">
             <div className="flex flex-col gap-4 w-full">

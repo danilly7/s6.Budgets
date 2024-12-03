@@ -15,10 +15,6 @@ export const FeatureItem: React.FC<ItemFeatureProps> = ({
     handleClickPlus,
     handleClickMinus
 }) => {
-    console.log('isChecked:', isChecked); // Asegúrate de que isChecked es un array de booleanos
-    console.log('index:', index); // Asegúrate de que index es el valor correcto
-    console.log('isChecked[index]:', isChecked[index]); // Aquí debería devolver true o false, no undefined
-
     return (
         <div className='flex flex-col my-10 mx-64 p-10 border-2 border-gray-50 shadow-lg rounded-lg key={index}'>
             <div className="flex flex-row items-center justify-between">
@@ -50,8 +46,7 @@ export const FeatureItem: React.FC<ItemFeatureProps> = ({
                     </div>
                 </div>
             </div>
-            {/* {isChecked && isChecked[index] !== undefined && ( */}
-            // {isChecked[index] && index === 2 && (
+            {isChecked[index] && index === 2 && (
                 <Extras
                     pagesCount={pagesCount}
                     languagesCount={languagesCount}
