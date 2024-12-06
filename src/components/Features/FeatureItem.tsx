@@ -16,20 +16,20 @@ export const FeatureItem: React.FC<ItemFeatureProps> = ({
     handleClickMinus
 }) => {
     return (
-        <div className='flex flex-col my-10 mx-64 p-10 border-2 border-gray-50 shadow-lg rounded-lg key={index}'>
+        <div className='flex flex-col mb-10 sm:mx-4 lg:mx-32 p-10 border-2 border-gray-50 shadow-lg rounded-lg w-full sm:w-auto key={index}'>
             <div className="flex flex-row items-center justify-between">
                 <div className='flex flex-col items-start'>
-                    <h2 className='flex flex-row text-4xl font-bold text-gray-800'>{name}</h2>
-                    <p className='flex flex-row font-semibold text-gray-800 pt-2'>{description}</p>
+                    <h2 className='text-4xl font-bold text-gray-800'>{name}</h2>
+                    <p className='font-semibold text-gray-800 pt-2'>{description}</p>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
-                    <h4 className='flex flex-row text-orange-400 font-semibold text-xl'>{discountDescription}</h4>
-                    <h3 className='flex flex-row text-4xl font-extrabold text-gray-800 pt-2'>{price}</h3>
+                    <h4 className='text-orange-400 font-semibold text-xl'>{discountDescription}</h4>
+                    <h3 className='text-4xl font-extrabold text-gray-800 pt-2'>{price}</h3>
                 </div>
                 <div className="flex flex-col items-end">
                     <div className="flex flex-row">
                         <input
-                            className="flex flex-col w-4 h-4 rounded"
+                            className="w-4 h-4 rounded"
                             type="checkbox"
                             id={`${index}-checkbox`}
                             name={name}
@@ -39,7 +39,7 @@ export const FeatureItem: React.FC<ItemFeatureProps> = ({
                             aria-checked={isChecked[index] ? 'true' : 'false'}
                         />
                         <label
-                            className="flex flex-col ms-2 text-sm text-gray-800 font-semibold"
+                            className="ms-2 text-sm sm:text-base text-gray-800 font-semibold"
                             htmlFor={`${index}-checkbox`}
                         >
                             Afegir
