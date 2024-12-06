@@ -14,7 +14,6 @@ export type ItemFeatureProps = ItemFeature & {
     isChecked: boolean[];
     index: number;
     handleOnChange: (index: number) => void;
-    showExtras: boolean;
     pagesCount: number;
     languagesCount: number;
     handleClickPlus: (type: 'pages' | 'languages') => void;

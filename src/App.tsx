@@ -1,22 +1,23 @@
 import './App.css';
-import { Banner } from './components/Banner';
-import { FeaturesComponent } from './components/Features/FeaturesComponent';
-import { Switch } from './components/Switch';
+import { Header } from './components/Header';
+import { FeaturesPage } from './pages/FeaturesPage';
+import { HomePage } from './pages/HomePage'
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <>
       <header>
+        <Header />
       </header>
       <main>
-        <Banner />
-        <Switch />
-        <FeaturesComponent />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/features-page' element={<FeaturesPage />} />
+        </Routes>
       </main>
-      <footer>
-      </footer>
     </>
   )
-}
+};
 
-export default App
+export default App; 

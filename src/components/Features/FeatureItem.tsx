@@ -36,6 +36,7 @@ export const FeatureItem: React.FC<ItemFeatureProps> = ({
                             value={price}
                             checked={isChecked[index]}
                             onChange={() => handleOnChange(index)}
+                            aria-checked={isChecked[index] ? 'true' : 'false'}
                         />
                         <label
                             className="flex flex-col ms-2 text-sm text-gray-800 font-semibold"

@@ -7,7 +7,6 @@ import { TotalPrice } from "./TotalPrice";
 export const FeaturesComponent = () => {
     const [isChecked, setIsChecked] = useState<boolean[]>(new Array(itemsFeaturesArray.length).fill(false));
     const [total, setTotal] = useState(0);
-    const [showExtras, setShowExtras] = useState(false);
     const [pagesCount, setPagesCount] = useState(0);
     const [languagesCount, setLanguagesCount] = useState(0);
 
@@ -20,19 +19,10 @@ export const FeaturesComponent = () => {
         const totalPrice = calculateTotalPrice(updatedCheckedState, itemsFeaturesArray, pagesCount, languagesCount);
         setTotal(totalPrice);
 
-        if (!updatedCheckedState[position]) {
+        if (!updatedCheckedState[2]) {
             setPagesCount(0);
             setLanguagesCount(0);
             setTotal(calculateTotalPrice(updatedCheckedState, itemsFeaturesArray, 0, 0));
-        }
-
-        if (position === 2) {
-            setShowExtras(updatedCheckedState[2]);
-            if (!updatedCheckedState[2]) {
-                setPagesCount(0);
-                setLanguagesCount(0);
-                setTotal(calculateTotalPrice(updatedCheckedState, itemsFeaturesArray, 0, 0));
-            }
         }
     };
 
@@ -94,7 +84,6 @@ export const FeaturesComponent = () => {
                     price={price}
                     isChecked={isChecked}
                     index={index}
-                    showExtras={showExtras}
                     handleOnChange={handleOnChange}
                     pagesCount={pagesCount}
                     languagesCount={languagesCount}
