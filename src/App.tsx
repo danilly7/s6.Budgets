@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/features-page' element={<FeaturesPage />} />
+          <Route path='*' element={<h1 className='text-2xl font-bold text-red-600 m-10 flex justify-center'>Not Found</h1>}/>
         </Routes>
       </main>
     </>

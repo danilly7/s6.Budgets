@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 export const Header = () => {
     return (
@@ -13,8 +13,22 @@ export const Header = () => {
             </div>
             <nav className="flex flex-row items-end">
                 <ul className="flex flex-row space-x-8 text-white text-xl">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/features-page'>Productes</Link></li>
+                    <li>
+                        <NavLink
+                            to='/'
+                            className={({ isActive }) => isActive ? 'font-semibold pointer-events-none' : undefined}
+                        >
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to='/features-page'
+                            className={({ isActive }) => isActive ? 'font-semibold pointer-events-none' : undefined}
+                        >
+                            Productes
+                        </NavLink>
+                    </li>
                 </ul>
             </nav>
         </div>
