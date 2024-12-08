@@ -9,4 +9,4 @@ export const TotalPrice: React.FC<TotalPriceProps> = ({ total }) => {
             </h2>
         </div>
     )
-}
+};
