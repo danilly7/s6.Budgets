@@ -5,7 +5,7 @@ import { Extras } from "./Extras";
 export const FeatureItem: React.FC<ItemFeatureProps> = ({
     name,
     description,
-    discountDescription,
+    // discountDescription,
     price,
     isChecked,
     index,
@@ -16,14 +16,17 @@ export const FeatureItem: React.FC<ItemFeatureProps> = ({
     handleClickMinus
 }) => {
     return (
-        <div className='flex flex-col mb-10 sm:mx-4 lg:mx-32 p-10 border-2 border-gray-50 shadow-lg rounded-lg w-full sm:w-auto key={index}'>
+        <div
+            className={`flex flex-col mb-10 sm:mx-4 lg:mx-32 p-10 border-2 border-gray-50 shadow-lg rounded-lg w-full sm:w-auto focus:outline-none ${isChecked[index] ? 'ring-2 ring-teal-500' : ''}`}
+            key={index}
+        >
             <div className="flex flex-row items-center justify-between">
                 <div className='flex flex-col items-start'>
                     <h2 className='text-4xl font-bold text-gray-800'>{name}</h2>
                     <p className='font-semibold text-gray-800 pt-2'>{description}</p>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
-                    <h4 className='text-orange-400 font-semibold text-xl'>{discountDescription}</h4>
+                    {/* <h4 className='text-orange-400 font-semibold text-xl'>{discountDescription}</h4> */}
                     <h3 className='text-4xl font-extrabold text-gray-800 pt-2'>{price}</h3>
                 </div>
                 <div className="flex flex-col items-end">

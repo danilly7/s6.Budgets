@@ -2,10 +2,11 @@ import { useState } from "react";
 import { BudgetInquiry } from "./AddBudget";
 import { BudgetList } from "./BudgetList";
 import { Budget, InquiryBudgetType } from "./Budget.types";
+import { itemsFeaturesArray } from "../Features/itemsFeaturesArray";
 import { useBudgetContext } from "./Context";
 
 export const BudgetComponent = () => {
-    const { setInquiryBudget, featuresBudget, addBudget } = useBudgetContext();
+    const { featuresBudget, setFeaturesBudget, addBudget, setIsCheckedContext } = useBudgetContext();
 
     const [newInquiry, setNewInquiry] = useState<InquiryBudgetType>({
         name: '',
@@ -22,7 +23,6 @@ export const BudgetComponent = () => {
         };
         setNewInquiry(updatedInquiry);
 
-
         if (!updatedInquiry.name || !updatedInquiry.telephone || !updatedInquiry.email) {
             alert('Tots els camps són obligatoris.');
             return;
@@ -32,16 +32,26 @@ export const BudgetComponent = () => {
             featuresBudget,
             inquiryBudget: updatedInquiry,
         };
-
         addBudget(finalBudget);
-        console.log('finalBudget, este se activa con el click Sol·licitar pressupost', finalBudget);
+
+        setNewInquiry({ //↓---para limpiar formulariooo---↓
+            name: '',
+            telephone: '',
+            email: '',
+            date: new Date().toLocaleDateString(),
+        });
+        setFeaturesBudget({
+            services: [],
+            priceBudget: 0,
+        });
+        setIsCheckedContext(new Array(itemsFeaturesArray.length).fill(false));
     };
 
     return (
         <>
             <BudgetInquiry
                 newInquiry={newInquiry}
-                setInquiryBudget={setInquiryBudget}
+                setNewInquiry={setNewInquiry}
                 handleSubmit={handleSubmit}
             />
             <div className="border-t-2 border-dashed border-gray-300 mt-8 mb-10" />

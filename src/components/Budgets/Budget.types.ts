@@ -36,6 +36,8 @@ export interface BudgetContextType {
     addBudget: (newBudget: Budget) => void;
     budgets: Budget[];
     setBudgets: Dispatch<SetStateAction<Budget[]>>;
+    isCheckedContext: boolean[];
+    setIsCheckedContext: React.Dispatch<React.SetStateAction<boolean[]>>;
 };
 
 export interface BudgetProviderProps {
@@ -45,6 +47,6 @@ export interface BudgetProviderProps {
 
 export interface BudgetInquiryProps {
     newInquiry: InquiryBudgetType;
-    setInquiryBudget: React.Dispatch<React.SetStateAction<InquiryBudgetType>>;
+    setNewInquiry: React.Dispatch<React.SetStateAction<InquiryBudgetType>>;
     handleSubmit: (e: React.FormEvent) => void;
-}
+};

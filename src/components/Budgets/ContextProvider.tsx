@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BudgetContext from "./Context";
 import { Budget, BudgetProviderProps, FeaturesBudgetType, InquiryBudgetType } from "./Budget.types";
+import { itemsFeaturesArray } from "../Features/itemsFeaturesArray";
 
 export const BudgetProvider: React.FC<BudgetProviderProps> = ({ budgetArr, children }) => {
     const [inquiryBudget, setInquiryBudget] = useState<InquiryBudgetType>({
@@ -9,17 +10,19 @@ export const BudgetProvider: React.FC<BudgetProviderProps> = ({ budgetArr, child
         email: '',
         date: ''
     })
+
     const [featuresBudget, setFeaturesBudget] = useState<FeaturesBudgetType>({
         services: [],
         priceBudget: 0
     });
+
+    const [isCheckedContext, setIsCheckedContext] = useState<boolean[]>(new Array(itemsFeaturesArray.length).fill(false));
+
     const [budgets, setBudgets] = useState<Budget[]>(budgetArr);
 
     const addBudget = (newBudget: Budget) => {
-        console.log("Adding budget:", newBudget);
         setBudgets(prevBudgets => {
             const updatedBudgets = [...prevBudgets, newBudget];
-            console.log('Updated Budgets:', updatedBudgets);
             return updatedBudgets;
         });
     };
@@ -33,6 +36,8 @@ export const BudgetProvider: React.FC<BudgetProviderProps> = ({ budgetArr, child
             addBudget,
             budgets,
             setBudgets,
+            isCheckedContext,
+            setIsCheckedContext,
         }}>
             {children}
         </BudgetContext.Provider>

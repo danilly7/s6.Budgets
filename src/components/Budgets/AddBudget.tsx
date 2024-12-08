@@ -2,7 +2,7 @@ import { BudgetInquiryProps } from "./Budget.types";
 
 export const BudgetInquiry = ({
     newInquiry,
-    setInquiryBudget,
+    setNewInquiry,
     handleSubmit
 }: BudgetInquiryProps) => {
 
@@ -16,7 +16,7 @@ export const BudgetInquiry = ({
                             placeholder="Nom"
                             className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 w-full"
                             value={newInquiry.name}
-                            onChange={(e) => setInquiryBudget({ ...newInquiry, name: e.target.value })}
+                            onChange={(e) => setNewInquiry({ ...newInquiry, name: e.target.value })}
                         />
                     </div>
                     <div className='flex flex-col items-start p-4 flex-grow'>
@@ -25,7 +25,7 @@ export const BudgetInquiry = ({
                             placeholder="Telèfon"
                             className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 w-full"
                             value={newInquiry.telephone}
-                            onChange={(e) => setInquiryBudget({ ...newInquiry, telephone: e.target.value })}
+                            onChange={(e) => setNewInquiry({ ...newInquiry, telephone: e.target.value })}
                         />
                     </div>
                     <div className='flex flex-col items-start p-4 flex-grow'>
@@ -34,7 +34,7 @@ export const BudgetInquiry = ({
                             placeholder="Email"
                             className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 w-full"
                             value={newInquiry.email}
-                            onChange={(e) => setInquiryBudget({ ...newInquiry, email: e.target.value })}
+                            onChange={(e) => setNewInquiry({ ...newInquiry, email: e.target.value })}
                         />
                     </div>
                 </div>

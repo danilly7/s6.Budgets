@@ -23,13 +23,13 @@ export const BudgetList = () => {
                                 {featuresBudget.services.map(({
                                     nameService,
                                     priceService,
-                                    discountService,
+                                    // discountService,
                                     extrasService,
                                 }, serviceIndex) => (
                                     <li key={`${nameService}-${serviceIndex}`} className="text-left">
                                         <div>
                                             <h2 className='text-xl font-semibold text-teal-800'>{nameService} <span className="text-base text-gray-400">{priceService}€</span></h2>
-                                            {discountService && <p>Discount: {discountService}</p>}
+                                            {/* {discountService != null && discountService > 0 && <p>Discount: {discountService}%</p>} */}
                                             {extrasService && (
                                                 <div>
                                                     <p className="text-gray-800 font-semibold">Extres:</p>
