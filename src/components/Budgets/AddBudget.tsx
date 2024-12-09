@@ -7,7 +7,7 @@ export const BudgetInquiry = ({
 }: BudgetInquiryProps) => {
 
     return (
-        <div className='flex flex-col sm:flex-row md:flex-row lg:flex-row mb-10 sm:mx-4 lg:mx-32 p-10 border-2 border-gray-50 shadow-lg rounded-lg w-full sm:w-auto'>
+        <div className='flex flex-col sm:flex-row md:flex-row lg:flex-row mb-16 sm:mx-4 lg:mx-32 p-10 border-2 border-gray-50 shadow-lg rounded-lg w-full sm:w-auto'>
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row w-full">
                 <div className="flex flex-col sm:flex-row md:flex-row justify-between w-full mb-4 sm:mb-0 lg:gap-4">
                     <div className='flex flex-col items-start p-4 flex-grow'>

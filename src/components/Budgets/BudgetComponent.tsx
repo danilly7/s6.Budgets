@@ -55,7 +55,10 @@ export const BudgetComponent = () => {
                 setNewInquiry={setNewInquiry}
                 handleSubmit={handleSubmit}
             />
-            <div className="border-t-2 border-dashed border-gray-300 mt-8 mb-10" />
+            <div className="border-t-2 border-dashed border-gray-300 my-10" />
+            <div className="my-10 flex justify-center">
+                <h1 className="text-4xl font-bold text-teal-800 underline">Pressupostos en curs</h1>
+            </div>
             <BudgetList />
         </>
     )

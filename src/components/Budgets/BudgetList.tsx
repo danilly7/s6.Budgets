@@ -33,7 +33,7 @@ export const BudgetList = () => {
                                                     <p className="text-gray-800 font-semibold">Extres: <span className="text-sm text-gray-400">30€ per extra</span></p>
                                                     <ul className="list-inside pl-5" >
                                                         <li className="text-gray-800">Núm. pàgines: {extrasService.pages}</li>
-                                                        <li className="text-gray-800">Núm. llenguatges: {extrasService.languages}</li>
+                                                        <li className="text-gray-800">Núm. llengües: {extrasService.languages}</li>
 
                                                     </ul>
                                                 </div>

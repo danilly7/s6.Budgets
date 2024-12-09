@@ -1,10 +1,6 @@
 import { useBudgetContext } from "./Budgets/Context";
 
-type SwitchProps = {
-    onToggle: () => void,
-}
-
-export const Switch: React.FC<SwitchProps> = () => {
+export const Switch = () => {
     const { isDiscounted, toggleDiscount } = useBudgetContext();
 
     const handleToggle = () => {

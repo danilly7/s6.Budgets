@@ -1,5 +1,7 @@
 import React from "react";
 import { ExtrasProps } from "./Features.types";
+import { ModalPages } from "../Modals/ModalPages";
+import { ModalLanguages } from "../Modals/ModalLanguages";
 
 export const Extras: React.FC<ExtrasProps> = ({ pagesCount, languagesCount, handleClickPlus, handleClickMinus }) => {
 
@@ -7,7 +9,8 @@ export const Extras: React.FC<ExtrasProps> = ({ pagesCount, languagesCount, hand
         <div className="flex flex-row mt-8 w-full justify-end">
             <div className="flex flex-col gap-4 w-full">
                 <div className="flex flex-row items-center gap-4 justify-end">
-                    <p className="text-right w-full">Nombre de pàgines:</p>
+                    <ModalPages />
+                    <p className="text-right">Número de pàgines:</p>
                     <button
                         className="text-sm text-gray-400 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center hover:bg-gray-200 hover:text-gray-500 hover:border-gray-500"
                         onClick={() => handleClickMinus('pages')}
@@ -24,7 +27,8 @@ export const Extras: React.FC<ExtrasProps> = ({ pagesCount, languagesCount, hand
                     </button>
                 </div>
                 <div className="flex flex-row items-center gap-4 justify-end">
-                    <p className="text-right w-full">Nombre de llenguatges:</p>
+                    <ModalLanguages />
+                    <p className="text-right">Número de llengües:</p>
                     <button
                         className="text-sm text-gray-400 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center hover:bg-gray-200 hover:text-gray-500 hover:border-gray-500"
                         onClick={() => handleClickMinus('languages')}
@@ -43,4 +47,4 @@ export const Extras: React.FC<ExtrasProps> = ({ pagesCount, languagesCount, hand
             </div>
         </div>
     )
-}
+};
