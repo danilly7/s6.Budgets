@@ -13,12 +13,16 @@ export const BudgetProvider: React.FC<BudgetProviderProps> = ({ budgetArr, child
 
     const [featuresBudget, setFeaturesBudget] = useState<FeaturesBudgetType>({
         services: [],
-        priceBudget: 0
+        priceBudget: 0,
+        discountedBudget: false,
     });
 
     const [isCheckedContext, setIsCheckedContext] = useState<boolean[]>(new Array(itemsFeaturesArray.length).fill(false));
 
     const [budgets, setBudgets] = useState<Budget[]>(budgetArr);
+
+    const [isDiscounted, setIsDiscounted] = useState<boolean>(false); 
+    const toggleDiscount = () => setIsDiscounted(prevState => !prevState);
 
     const addBudget = (newBudget: Budget) => {
         setBudgets(prevBudgets => {
@@ -38,6 +42,9 @@ export const BudgetProvider: React.FC<BudgetProviderProps> = ({ budgetArr, child
             setBudgets,
             isCheckedContext,
             setIsCheckedContext,
+            isDiscounted,
+            setIsDiscounted,
+            toggleDiscount,
         }}>
             {children}
         </BudgetContext.Provider>

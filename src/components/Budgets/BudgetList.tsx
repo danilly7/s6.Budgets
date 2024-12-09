@@ -23,16 +23,14 @@ export const BudgetList = () => {
                                 {featuresBudget.services.map(({
                                     nameService,
                                     priceService,
-                                    // discountService,
                                     extrasService,
                                 }, serviceIndex) => (
                                     <li key={`${nameService}-${serviceIndex}`} className="text-left">
                                         <div>
                                             <h2 className='text-xl font-semibold text-teal-800'>{nameService} <span className="text-base text-gray-400">{priceService}€</span></h2>
-                                            {/* {discountService != null && discountService > 0 && <p>Discount: {discountService}%</p>} */}
                                             {extrasService && (
                                                 <div>
-                                                    <p className="text-gray-800 font-semibold">Extres:</p>
+                                                    <p className="text-gray-800 font-semibold">Extres: <span className="text-sm text-gray-400">30€ per extra</span></p>
                                                     <ul className="list-inside pl-5" >
                                                         <li className="text-gray-800">Núm. pàgines: {extrasService.pages}</li>
                                                         <li className="text-gray-800">Núm. llenguatges: {extrasService.languages}</li>
@@ -47,6 +45,10 @@ export const BudgetList = () => {
                         </div>
                         <div className='flex flex-col items-end justify-center p-4 flex-grow'>
                             <h2 className="text-4xl font-semibold text-gray-800">Total: <span className="text-teal-800 font-bold">{featuresBudget.priceBudget}€</span></h2>
+                            {featuresBudget.discountedBudget 
+                                ? <p className="text-orange-400 py-2">Amb el descompte del 20% aplicat.</p>
+                                : <p className=" pb-10"></p>
+                            }
                         </div>
                     </div>
                 </div>

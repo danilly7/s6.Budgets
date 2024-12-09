@@ -7,7 +7,7 @@ import { TotalPrice } from "./TotalPrice";
 import { useBudgetContext } from "../Budgets/Context";
 
 export const FeaturesComponent = () => {
-    const { setFeaturesBudget, isCheckedContext, setIsCheckedContext } = useBudgetContext();
+    const { setFeaturesBudget, isCheckedContext, setIsCheckedContext, isDiscounted } = useBudgetContext();
 
     const [pagesCount, setPagesCount] = useState<number>(0);
     const [languagesCount, setLanguagesCount] = useState<number>(0);
@@ -25,18 +25,7 @@ export const FeaturesComponent = () => {
 
         const extraCost = updatedCheckedState[2] ? (pagesCount + languagesCount) * 30 : 0;
 
-        const totalBeforeDiscount = featuresCost + extraCost;
-
-        const totalDiscount = 0;
-        // const totalDiscount = updatedCheckedState.reduce((acc: number, currentCheckedState: boolean, index: number) => {
-        //     if (currentCheckedState && itemsFeatures[index].discount) {
-        //         const discountAmount = totalBeforeDiscount * (itemsFeatures[index].discount / 100);
-        //         return acc + discountAmount;
-        //     }
-        //     return acc;
-        // }, 0);
-
-        return totalBeforeDiscount - totalDiscount;
+        return featuresCost + extraCost;
     };
 
     useEffect(() => {
@@ -47,31 +36,33 @@ export const FeaturesComponent = () => {
             setLanguagesCount(0);
         };
 
-        const totalPrice = calculateTotalPrice(isCheckedContext, itemsFeaturesArray, pagesCount, languagesCount);
+        const totalPrice = isDiscounted
+            ? calculateTotalPrice(isCheckedContext, itemsFeaturesArray, pagesCount, languagesCount) * 0.8
+            : calculateTotalPrice(isCheckedContext, itemsFeaturesArray, pagesCount, languagesCount);
         setLocalPriceBudget(totalPrice);
 
         const newFeaturesBudget = {
-            priceBudget: totalPrice,
             services: updatedCheckedState
-            .map((isSelected, index) => {
-                if (isSelected) {
-                    const item = itemsFeaturesArray[index];
-                    return {
-                        nameService: item.name,
-                        priceService: item.price,
-                        discountService: item.discount ?? undefined,
-                        extrasService: index === 2
-                        ? { pages: pagesCount, languages: languagesCount }
-                        : undefined,
-                    } as Service;
-                }
-                return null;
-            })
-            .filter((service): service is Service => service !== null),
+                .map((isSelected, index) => {
+                    if (isSelected) {
+                        const item = itemsFeaturesArray[index];
+                        return {
+                            nameService: item.name,
+                            priceService: item.price,
+                            extrasService: index === 2
+                                ? { pages: pagesCount, languages: languagesCount }
+                                : undefined,
+                        } as Service;
+                    }
+                    return null;
+                })
+                .filter((service): service is Service => service !== null),
+            priceBudget: totalPrice,
+            discountedBudget: isDiscounted,
         };
 
         setFeaturesBudget(newFeaturesBudget);
-    }, [pagesCount, languagesCount, isCheckedContext, setFeaturesBudget]);
+    }, [pagesCount, languagesCount, isCheckedContext, setFeaturesBudget, isDiscounted]);
 
     const handleOnChange = (position: number) => {
         const updatedCheckedState = isCheckedContext.map((item, index) =>
@@ -102,12 +93,11 @@ export const FeaturesComponent = () => {
 
     return (
         <>
-            {itemsFeaturesArray.map(({ name, description, discountDescription, price }, index) => (
+            {itemsFeaturesArray.map(({ name, description, price }, index) => (
                 <FeatureItem
                     key={index}
                     name={name}
                     description={description}
-                    discountDescription={discountDescription}
                     price={price}
                     isChecked={isCheckedContext}
                     index={index}
@@ -118,7 +108,9 @@ export const FeaturesComponent = () => {
                     handleClickMinus={handleClickMinus}
                 />
             ))}
-            <TotalPrice total={localPriceBudget} />
+            <TotalPrice
+                total={localPriceBudget}
+            />
         </>
     );
 };

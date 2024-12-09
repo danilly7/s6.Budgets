@@ -25,6 +25,7 @@ export const budgetArr: Budget[] = [
                 },
             ],
             priceBudget: 1140,
+            discountedBudget: false,
         },
     },
 ];

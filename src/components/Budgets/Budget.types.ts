@@ -16,11 +16,11 @@ export interface InquiryBudgetType {
 export interface FeaturesBudgetType {
     services: Service[];
     priceBudget: number;
+    discountedBudget: boolean;
 }
 
 export interface Service {
     nameService: string;
-    discountService?: number;
     priceService: number;
     extrasService?: {
         pages?: number;
@@ -38,6 +38,9 @@ export interface BudgetContextType {
     setBudgets: Dispatch<SetStateAction<Budget[]>>;
     isCheckedContext: boolean[];
     setIsCheckedContext: React.Dispatch<React.SetStateAction<boolean[]>>;
+    isDiscounted: boolean;
+    setIsDiscounted: React.Dispatch<React.SetStateAction<boolean>>;
+    toggleDiscount: () => void;
 };
 
 export interface BudgetProviderProps {

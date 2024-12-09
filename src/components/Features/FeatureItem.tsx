@@ -1,11 +1,11 @@
 import React from "react";
 import { ItemFeatureProps } from "./Features.types";
 import { Extras } from "./Extras";
+import { useBudgetContext } from "../Budgets/Context";
 
 export const FeatureItem: React.FC<ItemFeatureProps> = ({
     name,
     description,
-    // discountDescription,
     price,
     isChecked,
     index,
@@ -15,6 +15,7 @@ export const FeatureItem: React.FC<ItemFeatureProps> = ({
     handleClickPlus,
     handleClickMinus
 }) => {
+    const {isDiscounted} = useBudgetContext();
     return (
         <div
             className={`flex flex-col mb-10 sm:mx-4 lg:mx-32 p-10 border-2 border-gray-50 shadow-lg rounded-lg w-full sm:w-auto focus:outline-none ${isChecked[index] ? 'ring-2 ring-teal-500' : ''}`}
@@ -26,7 +27,10 @@ export const FeatureItem: React.FC<ItemFeatureProps> = ({
                     <p className='font-semibold text-gray-800 pt-2'>{description}</p>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
-                    {/* <h4 className='text-orange-400 font-semibold text-xl'>{discountDescription}</h4> */}
+                    {isDiscounted
+                    ? <h4 className='text-orange-400 font-semibold text-xl'>Estalvia el 20%</h4>
+                    : <h4 className="pb-7"></h4>
+                    }
                     <h3 className='text-4xl font-extrabold text-gray-800 pt-2'>{price}</h3>
                 </div>
                 <div className="flex flex-col items-end">

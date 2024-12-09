@@ -43,6 +43,7 @@ export const BudgetComponent = () => {
         setFeaturesBudget({
             services: [],
             priceBudget: 0,
+            discountedBudget: false,
         });
         setIsCheckedContext(new Array(itemsFeaturesArray.length).fill(false));
     };
