@@ -1,4 +1,4 @@
-# SPRING 6. PROFUNDIZANDO REACT - S6.Presupuestos (React)
+# SPRINT 6. PROFUNDIZANDO REACT - S6.Presupuestos (React)
 ## Descripción del proyecto
 
 La aplicación permite generar **presupuestos** para un sitio web mediante casillas de selección, campos de entrada y botones. Los usuarios pueden personalizar sus presupuestos, agregando servicios como SEO, publicidad o diseño web, y obtener un presupuesto **personalizado**. Además, ofrece la opción de guardar estos presupuestos asociándolos a un correo electrónico para su posterior acceso.
